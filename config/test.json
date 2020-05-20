@@ -1,0 +1,5 @@
+{
+  "jwtPrivateKey": "unsecure_tests",
+  "db": "mongodb://localhost/photosApp_test",
+  "requiresAuth": true
+}

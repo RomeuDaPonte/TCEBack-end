@@ -1,0 +1,28 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+allRoles	helpers/roleName.js	/^function allRoles() {$/;"	f
+const.admin	helpers/roleName.js	/^  admin: "Administrador",$/;"	p
+const.email	models/user.js	/^    email: Joi.string().min(5).max(255).required().email(),$/;"	p
+const.from	helpers/email.js	/^    from: process.env.MAIL_FROM,$/;"	p
+const.geral	helpers/roleName.js	/^  geral: "Geral",$/;"	p
+const.name	models/user.js	/^    name: Joi.string().min(3).required(),$/;"	p
+const.role	models/user.js	/^    role: Joi.any().when("password", {$/;"	p
+emailConfirmationBody	models/user.js	/^function emailConfirmationBody(email) {$/;"	f
+exports.roleName.admin	helpers/roleName.js	/^  admin: role.admin,$/;"	p
+module.exports	middleware/auth.js	/^module.exports = function(req, res, next) {$/;"	f
+module.exports	middleware/authAdmin.js	/^module.exports = function (req, res, next) {$/;"	f
+module.exports	middleware/error.js	/^module.exports = function(err, req, res, next) {$/;"	f
+module.exports	startup/config.js	/^module.exports = function() {$/;"	f
+module.exports	startup/cors.js	/^module.exports = function(app) {$/;"	f
+module.exports	startup/db.js	/^module.exports = function () {$/;"	f
+module.exports	startup/logging.js	/^module.exports = function() {$/;"	f
+module.exports	startup/routes.js	/^module.exports = function (app) {$/;"	f
+sendEmail	helpers/email.js	/^function sendEmail(to, subject, emailBody) {$/;"	f
+userSchema.methods.generateAuthToken	models/user.js	/^userSchema.methods.generateAuthToken = function () {$/;"	f
+validate	models/user.js	/^function validate(user) {$/;"	f
+validateEditarUser	models/user.js	/^function validateEditarUser(req) {$/;"	f
+validateLogin	models/user.js	/^function validateLogin(req) {$/;"	f
