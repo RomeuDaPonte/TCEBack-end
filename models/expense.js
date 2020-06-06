@@ -18,10 +18,6 @@ const expenseSchema = new mongose.Schema({
   description: {
     type: String,
   },
-  type: {
-    type: String,
-    required: true,
-  },
   date: {
     type: Date,
     required: true,
@@ -44,7 +40,6 @@ function validateNewExpense(expense) {
     source: Joi.string().required(),
     amount: Joi.number().required(),
     description: Joi.string().allow("", null),
-    type: Joi.string().required(),
     date: Joi.date().iso(),
     isPaid: Joi.boolean(),
     paymentMethod: Joi.string().required(),
