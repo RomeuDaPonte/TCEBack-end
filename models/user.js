@@ -47,6 +47,11 @@ userSchema.methods.checkPassword = function (password) {
   });
 };
 
+userSchema.methods.encryptPassword = async function (password) {
+  const salt = await bcrypt.genSalt(10);
+  this.password = await bcrypt.hash(password, salt);
+};
+
 const User = mongoose.model("User", userSchema);
 
 function validateRegister(user) {
@@ -67,22 +72,6 @@ function validateLogin(req) {
   });
 
   return schema.validate(req);
-}
-
-function emailConfirmationBody(email) {
-  const emailToken = jwt.sign(
-    {
-      email,
-    },
-    config.get("jwtPrivateKey")
-  );
-
-  const url = `http://127.0.0.1:8080/newAccount.html?${emailToken}`;
-
-  return `
-    <h3>Confirmação de conta na PhotosApp</h3>
-    Clique aqui para confirma o email: <a href="${url}">${url}</a>
-  `;
 }
 
 async function createAdminUser() {
@@ -108,4 +97,3 @@ exports.userSchema = userSchema;
 exports.validateRegister = validateRegister;
 exports.validateLogin = validateLogin;
 exports.createAdminUser = createAdminUser;
-exports.emailConfirmationBody = emailConfirmationBody;
