@@ -2,7 +2,7 @@
   "jwtPrivateKey": "unsecure",
   "db": "mongodb://localhost/tme",
   "port": "3001",
-  "requiresAuth": true,
+  "requiresAuth": false,
   "appMail": "",
   "appMailPassword": ""
 }
