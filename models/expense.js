@@ -48,14 +48,5 @@ function validateNewExpense(expense) {
   return schema.validate(expense);
 }
 
-function getTotalAmonth(listOfAmounts) {
-  let total = 0;
-  listOfAmounts.forEach((element) => {
-    total += element.amount;
-  });
-  return total;
-}
-
 exports.Expense = Expense;
 exports.validateNewExpense = validateNewExpense;
-exports.getTotalAmonth = getTotalAmonth;

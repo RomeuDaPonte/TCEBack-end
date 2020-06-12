@@ -17,7 +17,7 @@ router.post("/", async (req, res) => {
   res.send(expense);
 });
 
-router.get("/getTotalSpentByDate", async (req, res) => {
+router.get("/getAllByDate", async (req, res) => {
   const exists = await User.findOne({ _id: req.body.userId });
   if (!exists) return res.status(400).send("Invalid user id");
 
@@ -27,14 +27,9 @@ router.get("/getTotalSpentByDate", async (req, res) => {
   const arrayOfAmounts = await Expense.find()
     .and({ userId: req.body.userId })
     .and({ date: { $gt: firstDayInCurrentMonth } })
-    .select({ amount: 1 })
-    .select({ _id: 0 });
+    .select({ __v: 0 });
 
-  const totalAmount = {
-    totalSpent: getTotalAmonth(arrayOfAmounts),
-  };
-
-  res.send(totalAmount);
+  res.send(arrayOfAmounts);
 });
 
 module.exports = router;
