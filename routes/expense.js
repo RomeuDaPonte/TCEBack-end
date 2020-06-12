@@ -17,15 +17,15 @@ router.post("/", async (req, res) => {
   res.send(expense);
 });
 
-router.get("/getAllByDate", async (req, res) => {
-  const exists = await User.findOne({ _id: req.body.userId });
+router.get("/getAllByDate/:userId", async (req, res) => {
+  const exists = await User.findOne({ _id: req.params.userId });
   if (!exists) return res.status(400).send("Invalid user id");
 
   var date = new Date();
   var firstDayInCurrentMonth = new Date(date.getFullYear(), date.getMonth(), 1);
 
   const arrayOfAmounts = await Expense.find()
-    .and({ userId: req.body.userId })
+    .and({ userId: req.params.userId })
     .and({ date: { $gt: firstDayInCurrentMonth } })
     .select({ __v: 0 });
 
