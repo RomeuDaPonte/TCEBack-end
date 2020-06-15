@@ -27,6 +27,7 @@ router.get("/getAllByDate/:userId", async (req, res) => {
   const arrayOfAmounts = await Expense.find()
     .and({ userId: req.params.userId })
     .and({ date: { $gt: firstDayInCurrentMonth } })
+    .sort({ date: -1 })
     .select({ __v: 0 });
 
   res.send(arrayOfAmounts);
