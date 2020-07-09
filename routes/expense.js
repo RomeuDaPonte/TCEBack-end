@@ -33,4 +33,11 @@ router.get("/getAllByDate/:userId", async (req, res) => {
   res.send(arrayOfAmounts);
 });
 
+router.delete("/delete/:expenseId", async (req, res) => {
+  const expense = await Expense.findByIdAndRemove(req.params.expenseId);
+  if (!expense) return res.status(400).send("Already deleted");
+
+  res.send(expense);
+})
+
 module.exports = router;
